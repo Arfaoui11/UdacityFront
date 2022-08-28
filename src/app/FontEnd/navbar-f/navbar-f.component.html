@@ -1,0 +1,139 @@
+
+<!-- preloader -->
+<div id="preloader">
+  <div class="preloader">
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<!-- preloader end  -->
+
+<!-- back to top start -->
+<div class="progress-wrap">
+  <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+    <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+  </svg>
+</div>
+<!-- back to top end -->
+
+<header>
+  <div class="bd-header-area bd-header-area-four bd-header-area-six header-sticky">
+    <div class="bd-header-border bd-header-spacing">
+      <div class="bd-custom-container">
+        <div class="row align-items-center">
+          <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-7 order-1 order-xl-1">
+            <div class="bd-header-logo">
+              <p href="#" style="font-size: 19px;color: black;font-style: normal"><img src="../../../assets/images/ico/unisinos_university_64px.png" alt="logo not found"> Udacity Academy</p>
+            </div>
+          </div>
+          <div class="col-xl-5 col-lg-1 col-md-1 col-sm-1 col-2 order-3 order-xl-2">
+            <div class="bd-main-menu bd-main-menu-border-five">
+              <nav id="bd-mobile-menu" style="padding-left: 40px">
+                <ul>
+                  <li class="menu-item-has-children"><a [routerLink]="['/front/End/homeF']" >Home</a>
+                    <ul class="sub-menu">
+                      <li><a [routerLink]="['/front/End/homeF']" >Home </a></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children"><a [routerLink]="['/front/End/blogF']">Courses</a>
+                    <ul class="sub-menu">
+                      <li><a [routerLink]="['/front/End/blogF']">Courses</a></li>
+                      <li *ngIf="this.currentUser"><a  [routerLink]="['/front/End/myCourses']">My Learning </a></li>
+                      <li *ngIf="this.currentUser"><a [routerLink]="['/front/End/myCalender']">My Calender </a></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children"><a [routerLink]="['/front/End/blogF']">My Classroom</a>
+                    <ul class="sub-menu">
+                      <li><a [routerLink]="['/front/End/blogF']">Home</a></li>
+                      <li *ngIf="this.currentUser"><a  [routerLink]="['/front/End/portForm']"> Catalog </a></li>
+                      <li><a [routerLink]="['/front/End/chatNode']">Help</a></li>
+                      <li *ngIf="this.currentUser"><a [routerLink]="['/front/End/myCalender']"> Setting </a></li>
+                    </ul>
+
+
+                  <!--<li><a href="contact.html">Contact</a></li>-->
+                </ul>
+              </nav>
+            </div>
+            <!-- mobile menu activation -->
+            <div class="side-menu-icon side-menu-icon-four d-xl-none text-end">
+              <button class="side-toggle"><i class="far fa-bars"></i></button>
+            </div>
+          </div>
+          <div class="col-xl-5 col-lg-8 col-md-8 col-sm-8 col-3 order-2 order-xl-3">
+            <div class="bd-header-right bd-header-right-four text-end">
+              <div class="bd-header-input-search bd-header-input-search-six">
+                <form action="#" class="position-relative">
+                  <input type="text" placeholder="Search keywords">
+                  <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+              </div>
+             <div class="rounded-pill">
+               <button [routerLink]="['/front/End/cart']" class="btn btn-flat-primary">
+                 <i style="font-size: 30px;" class="fas fa-shopping-cart"></i>
+                 <div style="font-size: 10px;" class="badge bg-dark">{{totalItem}}</div>
+               </button>
+             </div>
+              <div class="bd-header-contacts">
+                <div class="comments-avatar" >
+                  <img *ngIf="currentUser" [src]="currentUser.file" class="img-lg" alt="img">
+                </div>
+                <div class="bd-header-contacts-text">
+
+
+
+                  <span *ngIf="currentUser"> Welcome {{currentUser.lastName.toUpperCase()}}</span>
+                  <button class="theme-btn w-full mb-12" style="width: 22px;height: 55px" *ngIf="!currentUser" [routerLink]="['/login']">Login</button>
+                  <button class="theme-btn w-full mb-12" style="width: 30px;height: 55px" *ngIf="currentUser"  (click)="logout()">Logout</button>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- mobile menu info -->
+<div class="fix">
+  <div class="side-info">
+    <button class="side-info-close"><i class="fal fa-times"></i></button>
+    <div class="side-info-content">
+      <div class="bd-mobile-menu"></div>
+      <div class="contact-infos mb-30">
+        <div class="contact-list mb-30">
+          <h4>Contact Info</h4>
+          <ul>
+            <li><i class="flaticon-location-1"></i>28/4 Palmal, London</li>
+            <li><i class="flaticon-email"></i><a ><span class="__cf_email__" data-cfemail="ef86818980af9c8e858ec18c8082">[email&#160;protected]</span></a></li>
+            <li><i class="flaticon-phone-call"></i><a href="tel:33388820055">+216 97 880 357</a></li>
+          </ul>
+          <div class="sidebar__menu--social">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-google"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="offcanvas-overlay"></div>
+<!-- mobile menu info -->
+
+<!-- Fullscreen search -->
+<div class="search-wrap">
+  <div class="search-inner">
+    <i class="fal fa-times search-close" id="search-close"></i>
+    <div class="search-cell">
+      <form method="get">
+        <div class="search-field-holder">
+          <input type="search" class="main-search-input" placeholder="Search here...">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- end fullscreen search -->
