@@ -3,7 +3,6 @@ import {TokenService} from "../../CoursesSpace/services/token.service";
 import {CartService} from "../../CoursesSpace/services/cart.service";
 import {FormationService} from "../../CoursesSpace/services/formation.service";
 import {Router} from "@angular/router";
-import {GoogleApiService, UserInfo} from "../../CoursesSpace/services/google-api.service";
 
 @Component({
   selector: 'app-navbar-f',
@@ -21,7 +20,6 @@ export class NavbarFComponent implements OnInit {
   currentUser: any;
 
   mailSnippets: string[] = [];
-  userInfo?: UserInfo;
 
 
 

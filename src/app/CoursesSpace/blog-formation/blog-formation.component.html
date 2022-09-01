@@ -1,0 +1,193 @@
+
+  <!-- breadcrumb area start -->
+  <div class="bd-page-title-area bd-page-title-bg pt-220 pb-155">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="bd-page-title text-center z-index">
+            <h2 class="breadcrumb-title">Courses</h2>
+            <div class="breadcrumb-menu">
+              <nav class="breadcrumb-trail breadcrumbs">
+                <ul class="trail-items">
+                  <li class="trail-item trail-begin"><a [routerLink]="['/front/End/homeF']">Home</a></li>
+                  <li class="trail-item trail-middle"><i class="far fa-chevron-right"></i></li>
+                  <li class="trail-item trail-end"><span>List Courses</span></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- breadcrumb area end -->
+  <br>
+  <div class="col-xl-12 col-lg-8 col-md-8 col-sm-8 col-6 order-4 order-xl-3">
+    <div class="bd-header-right bd-header-right-four text-end">
+      <div class="bd-header-input-search bd-header-input-search-six" >
+        <form (click)="SearchMultiple(key.value)" class="position-relative">
+          <input type="text" placeholder="Search keywords" #key="ngModel" ngModel
+                 name="key">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+
+
+    </div>
+    <br>
+    <div >
+      <section id="dropdown-with-split-btn">
+        <!-- users filter start -->
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Filters</h4>
+            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+            <div class="heading-elements">
+              <ul class="list-inline mb-0">
+                <li><a data-action="collapse"><i class="feather icon-chevron-down"></i></a></li>
+                <li><a data-action=""><i class="feather icon-rotate-cw users-data-filter"></i></a></li>
+                <li><a data-action="close"><i class="feather icon-x"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="card-content collapse show">
+            <div class="card-body">
+              <div class="users-list-filter">
+                <form>
+                  <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                      <label id="users-list-role"  >level</label >
+                      <fieldset class="form-group">
+                        <label>
+                          <select #type="ngModel" [(ngModel)]="level" name="type" class="form-control"  >
+                            <option value="All">All</option>
+                            <option value="BEGINNER">BEGINNER</option>
+                            <option value="INTERMEDIATE">INTERMEDIATE</option>
+                            <option value="ADVANCED">ADVANCED</option>
+                          </select>
+                        </label>
+                      </fieldset>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                      <label >Domain</label>
+                      <fieldset class="form-group">
+                        <select #domains="ngModel" [(ngModel)]="domain"    name="domains" id="domains" class="form-control" >
+                          <option value="All">All</option>
+                          <option value="DEVELOPMENT">Development</option>
+                          <option value="BUSINESS">Business</option>
+                          <option value="FINANCE&ACCOUNTING">Finance & Accounting</option>
+                          <option value="IT&SOFTWARE">IT & Software</option>
+                          <option value="OFFICEPRODUCTIVITY">Office Productivity</option>
+                          <option value="PERSONALDEVELOPMENT">Personal Development</option>
+                          <option value="DESIGN">Design</option>
+                          <option value="MARKETING">Marketing</option>
+                          <option value="LIFESTYLE">Lifestyle</option>
+                          <option value="PHOTOGRAPHY&VIDEO">Photography & Video</option>
+                          <option value="HEALTH&FITNESS">Health & Fitness</option>
+                          <option value="MUSIC">Music</option>
+                          <option value="TEACHING&ACADEMICS">Teaching & Academics</option>
+                        </select>
+                      </fieldset>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                      <label >Price</label>
+                      <fieldset class="form-group">
+                        <select #price="ngModel" [(ngModel)]="order" name="price" id="price" class="form-control" >
+                          <option value="All">All</option>
+                          <option value="-1">ascendant</option>
+                          <option value="1">descendant </option>
+                        </select>
+                      </fieldset>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                      <label for="users-list-department">Department</label>
+                      <fieldset class="form-group">
+                        <select class="form-control" id="users-list-department">
+                          <option value="">All</option>
+                          <option value="Sales">Sales</option>
+                          <option value="Devlopment">Devlopment</option>
+                          <option value="Management">Management</option>
+                        </select>
+                      </fieldset>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- users filter end -->
+      </section>
+    </div>
+  </div>
+
+
+  <!-- blog area start here -->
+  <section class="bd-blog-area pt-150 pb-145">
+    <div class="container">
+      <div class="row mb-30">
+
+        <div class="col-xl-4 col-lg-4 col-md-6" *ngFor="let l of listFormation | paginate : {
+            itemsPerPage: 3,
+            currentPage: page,
+            totalItems: Items
+          }  , let i=index">
+          <div class="bd-blog mb-30" >
+            <div class="bd-blog-img" >
+              <img  [src]="l.image" alt="blog image not found 1">
+            </div>
+            <div class="bd-blog-text">
+              <div class="bd-blog-meta mb-15">
+                <ul>
+                <div style="width: 60px;float: right"><ngx-qrcode [elementType]="elementType"  [value]="l.toString()" [width]="10"  [errorCorrectionLevel]="correctionLevel" ></ngx-qrcode></div>
+              </ul>
+                <ul>
+                  <li><a href="#"><i class="flaticon-calendar"></i>Start : {{l.start | date | slice:0 : 12   }} <br> End : {{l.end | date | slice:0 : 12}} </a></li>
+                  <li><a href="#"><i class="flaticon-chat"></i>{{l.comments.length}} Comments</a></li>
+
+                </ul>
+              </div>
+              <h4 class="bd-blog-title mb-40"><a class="e-title" > Title : {{l.title.toUpperCase()}} </a></h4>
+              <h6 >Skills Covered  : {{l.domain.toUpperCase()}}</h6>
+            <!--  <h6 class="bd-blog-title mb-20">Former : {{l.userF.displayName.toUpperCase()}}</h6>-->
+              <h5 class="bd-blog-title mb-40"  style="color: #0a58ca">Price  : {{l.costs}} $ </h5>
+              <div class="bd-blog-author">
+                <div class="bd-blog-author-info">
+                <img [src]="l.userF.file" alt="author image not found">
+                  <h6 class="bd-blog-author-info-title"> {{l.userF.profession}}</h6>
+                </div>
+                <div class="bd-blog-author-link">
+                  <a  [routerLink]="['../detailsF',l.id]" >Read More <i class="far fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="basic-pagination">
+            <!--<ul>
+              <li><span aria-current="page" class="page-numbers current">1</span></li>
+              <li><a class="page-numbers" href="#">2</a></li>
+              <li><a class="page-numbers" href="#">3</a></li>
+              <li><a class="next page-numbers" href="#">
+                <i class="fal fa-long-arrow-right"></i>
+              </a>
+              </li>
+            </ul>-->
+            <pagination-controls
+              previousLabel="Prev"
+              nextLabel="Next"
+              [responsive]="true"
+              (pageChange)="handlePageChange($event)"
+            ></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- blog area end here -->
+
+

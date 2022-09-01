@@ -6,8 +6,8 @@ import {TokenService} from "../../CoursesSpace/services/token.service";
 import {UserServicesService} from "../../CoursesSpace/services/user-services.service";
 import {User} from "../../core/model/User";
 import {AppdataService} from "../../CoursesSpace/services/appdata.service";
-import {GoogleLoginProvider, SocialAuthService, SocialUser} from 'angularx-social-login';
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {SocialUser} from "@abacritt/angularx-social-login";
 
 
 
@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
   showStudentBoard = false;
   showFormerBoard = false;
   public user: SocialUser;
+  myForm: any;
 
 
 
